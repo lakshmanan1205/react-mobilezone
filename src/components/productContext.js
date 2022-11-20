@@ -8,7 +8,7 @@ function ProductProvider(probs) {
   const [detailProducts, setDetailProducts] = useState(detailProduct);
 
   //dummy list
-  const [lakshPro, setLakshPro] = useState([]);
+  const [lakshPro, setLakshPro] = useState(storeProducts);
 
   const lakshman = () => {
     let tempProducts = [];
@@ -19,30 +19,30 @@ function ProductProvider(probs) {
       return { lakshPro: tempProducts };
     });
   };
-  useEffect(() => {
-    console.log(`from effect ${lakshPro}`);
-    // setProducts(() => {
-    //   let tempProducts = [];
-    //   storeProducts.forEach((item) => {
-    //     // const singleItem = { ...item };
-    //     console.log(item);
-    //     tempProducts = tempProducts.push(item);
-    //     // tempProducts = [...tempProducts, singleItem];
-    //     console.log(tempProducts);
-    //   });
-    //   return { products: storeProducts };
-    // });
-    setLakshPro(() => {
-      let lakshmanan = [];
-      storeProducts.forEach(
-        lakshman
-        //   (element) => {
-        //   lakshman.push(...element, element);
-        //   console.log(element);
-        // }
-      );
-    });
-  }, [lakshPro]);
+  // useEffect(() => {
+  //   console.log(`from effect ${lakshPro}`);
+  // setProducts(() => {
+  //   let tempProducts = [];
+  //   storeProducts.forEach((item) => {
+  //     // const singleItem = { ...item };
+  //     console.log(item);
+  //     tempProducts = tempProducts.push(item);
+  //     // tempProducts = [...tempProducts, singleItem];
+  //     console.log(tempProducts);
+  //   });
+  //   return { products: storeProducts };
+  // });
+  // setLakshPro(() => {
+  //   let lakshmanan = [];
+  //   storeProducts.forEach(
+  //     lakshman
+  //   (element) => {
+  //   lakshman.push(...element, element);
+  //   console.log(element);
+  // }
+  //     );
+  //   });
+  // }, [lakshPro]);
 
   // setProducts(() => {
   //   return setMe;

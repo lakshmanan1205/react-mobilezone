@@ -14,10 +14,10 @@ function ProductList() {
           <Title name="our" title="products" />
           <div className="row">
             {/* <h6>{product}</h6> */}
-            {products.products === undefined ? (
+            {products === undefined ? (
               <>still loading</>
             ) : (
-              products.products.map((product) => {
+              products.map((product) => {
                 return <Product key={product.id} product={product} />;
               })
             )}
