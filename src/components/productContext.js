@@ -4,8 +4,11 @@ import { storeProducts, detailProduct } from "../data";
 export const productList = React.createContext();
 
 function ProductProvider(probs) {
-  let [products, setProducts] = useState(storeProducts);
+  let [products, setProducts] = useState([]);
   const [detailProducts, setDetailProducts] = useState(detailProduct);
+
+  //dummy list
+  const [lakshPro, setLakshPro] = useState([]);
 
   const lakshman = () => {
     let tempProducts = [];
