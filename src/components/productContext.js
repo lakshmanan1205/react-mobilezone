@@ -5,7 +5,7 @@ export const productList = React.createContext();
 
 function ProductProvider(probs) {
   // let [products, setProducts] = useState([]);
-  const [detailProducts, setDetailProducts] = useState(detailProduct);
+  const [detailProducts, setDetailProducts] = useState(storeProducts);
 
   //dummy list
   const [lakshPro, setLakshPro] = useState([]);
