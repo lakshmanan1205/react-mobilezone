@@ -4,7 +4,7 @@ import { storeProducts, detailProduct } from "../data";
 export const productList = React.createContext();
 
 function ProductProvider(probs) {
-  let [products, setProducts] = useState([]);
+  // let [products, setProducts] = useState([]);
   const [detailProducts, setDetailProducts] = useState(detailProduct);
 
   //dummy list
@@ -16,23 +16,33 @@ function ProductProvider(probs) {
       const singleItem = { ...item };
       tempProducts = [...tempProducts, singleItem];
       console.log(tempProducts);
-      return { products: tempProducts };
+      return { lakshPro: tempProducts };
     });
   };
   useEffect(() => {
-    console.log(`from effect ${products}`);
-    setProducts(() => {
-      let tempProducts = [];
-      storeProducts.forEach((item) => {
-        // const singleItem = { ...item };
-        console.log(item);
-        tempProducts = tempProducts.push(item);
-        // tempProducts = [...tempProducts, singleItem];
-        console.log(tempProducts);
-      });
-      return { products: storeProducts };
+    console.log(`from effect ${lakshPro}`);
+    // setProducts(() => {
+    //   let tempProducts = [];
+    //   storeProducts.forEach((item) => {
+    //     // const singleItem = { ...item };
+    //     console.log(item);
+    //     tempProducts = tempProducts.push(item);
+    //     // tempProducts = [...tempProducts, singleItem];
+    //     console.log(tempProducts);
+    //   });
+    //   return { products: storeProducts };
+    // });
+    setLakshPro(() => {
+      let lakshmanan = [];
+      storeProducts.forEach(
+        lakshman
+        //   (element) => {
+        //   lakshman.push(...element, element);
+        //   console.log(element);
+        // }
+      );
     });
-  }, [products]);
+  }, [lakshPro]);
 
   // setProducts(() => {
   //   return setMe;
@@ -44,10 +54,10 @@ function ProductProvider(probs) {
   const addToCart = () => {
     console.log("fromhcartandle");
   };
-  console.log(`from context ${products}`);
+  console.log(`from context ${lakshPro}`);
   return (
     <productList.Provider
-      value={{ products, detailProducts, handleDetail, addToCart }}
+      value={{ lakshPro, detailProducts, handleDetail, addToCart }}
     >
       {probs.children}
     </productList.Provider>
