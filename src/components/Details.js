@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "./Button";
+import { productList } from "./productContext";
 
 function Details() {
+  const detailProduct = useContext(productList);
   return (
     <>
       <div className="container py-5">

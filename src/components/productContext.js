@@ -4,49 +4,22 @@ import { storeProducts, detailProduct } from "../data";
 export const productList = React.createContext();
 
 function ProductProvider(probs) {
-  // let [products, setProducts] = useState([]);
-  const [detailProducts, setDetailProducts] = useState(storeProducts);
+  let [products, setProducts] = useState([]);
+  const [detailProducts, setDetailProducts] = useState(detailProduct);
 
-  //dummy list
-  const [lakshPro, setLakshPro] = useState(storeProducts);
-
-  const lakshman = () => {
-    let tempProducts = [];
-    storeProducts.forEach((item) => {
-      const singleItem = { ...item };
-      tempProducts = [...tempProducts, singleItem];
+  useEffect(() => {
+    console.log("from effect");
+    setProducts(() => {
+      let tempProducts = [];
+      storeProducts.forEach((item) => {
+        const singleItem = { ...item };
+        tempProducts = [...tempProducts, singleItem];
+      });
       console.log(tempProducts);
-      return { lakshPro: tempProducts };
+      console.log(`temp product is  ${tempProducts}`);
+      return { products: tempProducts };
     });
-  };
-  // useEffect(() => {
-  //   console.log(`from effect ${lakshPro}`);
-  // setProducts(() => {
-  //   let tempProducts = [];
-  //   storeProducts.forEach((item) => {
-  //     // const singleItem = { ...item };
-  //     console.log(item);
-  //     tempProducts = tempProducts.push(item);
-  //     // tempProducts = [...tempProducts, singleItem];
-  //     console.log(tempProducts);
-  //   });
-  //   return { products: storeProducts };
-  // });
-  // setLakshPro(() => {
-  //   let lakshmanan = [];
-  //   storeProducts.forEach(
-  //     lakshman
-  //   (element) => {
-  //   lakshman.push(...element, element);
-  //   console.log(element);
-  // }
-  //     );
-  //   });
-  // }, [lakshPro]);
-
-  // setProducts(() => {
-  //   return setMe;
-  // });
+  }, []);
 
   const handleDetail = () => {
     console.log("fromhandle");
@@ -54,10 +27,10 @@ function ProductProvider(probs) {
   const addToCart = () => {
     console.log("fromhcartandle");
   };
-  console.log(`from context ${lakshPro}`);
+  console.log(`from context ${products}`);
   return (
     <productList.Provider
-      value={{ lakshPro, detailProducts, handleDetail, addToCart }}
+      value={{ products, detailProducts, handleDetail, addToCart }}
     >
       {probs.children}
     </productList.Provider>

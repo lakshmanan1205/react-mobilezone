@@ -5,6 +5,8 @@ import { productList } from "../components/productContext";
 
 function ProductList() {
   const products = useContext(productList);
+  console.log("from list");
+  console.log(products);
 
   return (
     <>
@@ -13,13 +15,13 @@ function ProductList() {
           <Title name="our" title="products" />
           <div className="row">
             {/* <h6>{product}</h6> */}
-            {products.detailProducts === undefined ? (
+            {/* {products.products === undefined ? (
               <>still loading</>
             ) : (
-              products.detailProducts.map((product) => {
+              products.products.map((product) => {
                 return <Product key={product.id} product={product} />;
               })
-            )}
+            )} */}
             {}
           </div>
         </div>
