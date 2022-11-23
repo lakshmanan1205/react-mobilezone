@@ -21,3 +21,21 @@ body {
 .text-braight {
   color: var(--lightBlue);
 }
+.btn-black {
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem !important;
+  padding: 0.2rem 0.4rem;
+  color: var(--mainDark);
+  border-radius: 0 !important;
+  border: 0.1rem solid var(--mainDark);
+}
+.btn-black:hover {
+  background: var(--mainDark);
+  color: var(--mainWhite);
+}
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--mainYellow);
+}

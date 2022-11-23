@@ -1,28 +1,55 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { productList } from "./productContext";
+
+export const forDetails = React.createContext;
+
 function Product(probs) {
-  const { id, title, img, price, company, info, inCart } = probs.product;
+  const details = useContext(productList);
 
-  const clickHandlerDetils = () => {
-    return (
-      console.log(`value of id : ${id}`),
-      console.log(`temp is ${(id, title, img, price, info, inCart)}}`),
-      console.log(`to app- product-id ${id}`)
-    );
+  let { id, title, img, price, company, info, inCart } = probs.product;
+  // useEffect(
+  //   (() => {
+  //   },
+  //   [inCart])
+  // );
+
+  const getItem = (id) => {
+    const product = details.products.find((item) => item.id === id);
+    return product;
   };
-
+  const clickHandlerDetils = () => {
+    return details.setDetailProducts(probs.product);
+    productList.setDetailProducts(probs.product.inCart);
+  };
+  const clickHandlerCart = () => {
+    console.log("you clicked");
+    console.log(id);
+    let tempProducts = [...details.products];
+    const index = tempProducts.indexOf(getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+    return details.addLaksh(id), console.log(details.checkPro);
+    // [details.setCartproducts(product)],
+  };
+  const openModel = (id) => {
+    const product = getItem(id);
+    return details.setModelOpen(true);
+    // details.setModelProduct(product),
+  };
+  const closeModel = (id) => {
+    return details.setModelOpen(false);
+  };
   return (
     <>
       <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto">
         <div className="card">
-          <div
-            className="img-container p-5"
-            onClick={() => {
-              console.log("clickhandler");
-            }}
-          >
+          <div className="img-container p-5" onClick={clickHandlerDetils}>
             <Link to="/details">
               <img src={img} alt="productImage" className="card-img-top" />
             </Link>
@@ -31,6 +58,11 @@ function Product(probs) {
               disabled={inCart ? true : false}
               onClick={() => {
                 console.log("clickHandlerCart");
+                console.log(id);
+
+                clickHandlerCart(id);
+                openModel(id);
+                details.addLaksh(id);
               }}
             >
               {inCart ? (
