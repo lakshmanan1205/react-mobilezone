@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -9,7 +9,7 @@ export const forDetails = React.createContext;
 function Product(probs) {
   const details = useContext(productList);
 
-  let { id, title, img, price, company, info, inCart } = probs.product;
+  let { id, title, img, price, inCart } = probs.product;
   // useEffect(
   //   (() => {
   //   },
@@ -22,29 +22,28 @@ function Product(probs) {
   };
   const clickHandlerDetils = () => {
     return details.setDetailProducts(probs.product);
-    productList.setDetailProducts(probs.product.inCart);
   };
-  const clickHandlerCart = () => {
-    console.log("you clicked");
-    console.log(id);
-    let tempProducts = [...details.products];
-    const index = tempProducts.indexOf(getItem(id));
-    const product = tempProducts[index];
-    product.inCart = true;
-    product.count = 1;
-    const price = product.price;
-    product.total = price;
-    return details.addLaksh(id), console.log(details.checkPro);
-    // [details.setCartproducts(product)],
-  };
+  // const clickHandlerCart = () => {
+  //   console.log("you clicked");
+  //   console.log(id);
+  //   let tempProducts = [...details.products];
+  //   const index = tempProducts.indexOf(getItem(id));
+  //   const product = tempProducts[index];
+  //   product.inCart = true;
+  //   product.count = 1;
+  //   const price = product.price;
+  //   product.total = price;
+  //   return details.addLaksh(id), console.log(details.checkPro);
+  // [details.setCartproducts(product)],
+  // };
   const openModel = (id) => {
     const product = getItem(id);
     return details.setModelOpen(true);
     // details.setModelProduct(product),
   };
-  const closeModel = (id) => {
-    return details.setModelOpen(false);
-  };
+  // const closeModel = (id) => {
+  //   return details.setModelOpen(false);
+  // };
   return (
     <>
       <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto">

@@ -127,7 +127,9 @@ function ProductProvider(probs) {
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
-    return setCartSubTotal(subTotal), setCartTax(tax), setCartTotal(total);
+    setCartSubTotal(subTotal);
+    setCartTax(tax);
+    setCartTotal(total);
   };
 
   return (

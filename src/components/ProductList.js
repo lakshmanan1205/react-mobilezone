@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Title from "./Title";
 import Product from "../components/Product";
 import { productList } from "../components/productContext";
@@ -10,7 +10,6 @@ function ProductList() {
   // console.log(product.products);
   // console.log(product.products.length);
   // console.log(Array.isArray(product.products));
-  const obj = { a: 1, b: 2, c: 3 };
   return (
     <>
       <div className="py-5">

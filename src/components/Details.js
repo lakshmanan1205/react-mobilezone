@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "./Button";
@@ -7,7 +7,6 @@ import { forDetails } from "./Product";
 
 function Details() {
   const detailProduct = useContext(productList);
-  const model = useContext(forDetails);
   const getItem = (id) => {
     const product = detailProduct.products.find((item) => item.id === id);
     return product;
@@ -19,16 +18,16 @@ function Details() {
     );
   };
 
-  const clickHandlerCart = (id) => {
-    let tempProducts = [...detailProduct.products];
-    const index = tempProducts.indexOf(getItem(id));
-    const product = tempProducts[index];
-    product.inCart = true;
-    product.count = 1;
-    const price = product.price;
-    product.total = price;
-    return [detailProduct.setCartproducts(product)], console.log(detailProduct);
-  };
+  // const clickHandlerCart = (id) => {
+  //   let tempProducts = [...detailProduct.products];
+  //   const index = tempProducts.indexOf(getItem(id));
+  //   const product = tempProducts[index];
+  //   product.inCart = true;
+  //   product.count = 1;
+  //   const price = product.price;
+  //   product.total = price;
+  //   return [detailProduct.setCartproducts(product)], console.log(detailProduct);
+  // };
   return (
     <>
       <div className="container py-5">
