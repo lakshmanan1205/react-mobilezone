@@ -74,7 +74,7 @@ function Details() {
               cart
               disabled={detailProduct.detailProducts.inCart ? true : false}
               onClick={() => {
-                clickHandlerCart(detailProduct.detailProducts.id);
+                detailProduct.addLaksh(detailProduct.detailProducts.id);
                 openModel(detailProduct.detailProducts.id);
               }}
             >

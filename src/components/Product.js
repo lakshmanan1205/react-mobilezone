@@ -57,10 +57,7 @@ function Product(probs) {
               className="cart-btn"
               disabled={inCart ? true : false}
               onClick={() => {
-                console.log("clickHandlerCart");
-                console.log(id);
-
-                clickHandlerCart(id);
+                // clickHandlerCart(id);
                 openModel(id);
                 details.addLaksh(id);
               }}

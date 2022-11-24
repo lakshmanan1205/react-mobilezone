@@ -27,17 +27,29 @@ function CartItem(probs) {
             <span
               className="bnt btn-black mx-1"
               onClick={() => {
-                // count: count + 1;
+                item.decreament(id);
               }}
             >
               -
             </span>
             <span className="bnt btn-black mx-1">{count}</span>
-            <span className="bnt btn-black mx-1">+</span>
+            <span
+              className="bnt btn-black mx-1"
+              onClick={() => {
+                item.increament(id);
+              }}
+            >
+              +
+            </span>
           </div>
         </div>
         <div className="col-10 mx-auto col-lg-2">
-          <div className="cart-icon ">
+          <div
+            className="cart-icon "
+            onClick={() => {
+              item.removeItem(id);
+            }}
+          >
             <i className="fas fa-trash"></i>
           </div>
         </div>

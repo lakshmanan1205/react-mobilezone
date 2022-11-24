@@ -10,7 +10,6 @@ function CartList(probs) {
       <div className="container-fluid">
         {myCart.cartproducts.map((item) => {
           if (item.inCart === true) {
-            myCart.setLaksh(true)
             return <CartItem key={item.id} item={item} />;
           }
         })}

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { productList } from "./productContext";
 function Modal() {
   const modal = useContext(productList);
-  console.log(modal.modelProduct);
   if (!modal.modelOpen) {
     return null;
   } else {
