@@ -56,7 +56,6 @@ function ProductProvider(probs) {
     product.count = 1;
     const price = product.price;
     product.total = price;
-    console.log(product);
     return (
       setCartproducts([...cartproducts, product]),
       () => {
@@ -67,7 +66,6 @@ function ProductProvider(probs) {
 
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
-    console.log(id);
     return product;
   };
   const handleDetail = () => {
@@ -77,7 +75,6 @@ function ProductProvider(probs) {
     console.log("fromhcartandle");
   };
   const increament = (id) => {
-    console.log("incresed");
     let tempCartProducts = [...cartproducts];
     const selectdProduct = tempCartProducts.find((item) => item.id === id);
     const index = tempCartProducts.indexOf(selectdProduct);
@@ -87,8 +84,6 @@ function ProductProvider(probs) {
     addTotals();
   };
   const removeItem = (id) => {
-    console.log("removed");
-
     let tempProducts = [...products];
     let tempCartProducts = [...cartproducts];
     tempCartProducts = tempCartProducts.filter((item) => item.id !== id);
@@ -102,7 +97,6 @@ function ProductProvider(probs) {
     setProducts(tempProducts);
   };
   const decreament = (id) => {
-    console.log("decreased");
     let tempCartProducts = [...cartproducts];
     const selectdProduct = tempCartProducts.find((item) => item.id === id);
     const index = tempCartProducts.indexOf(selectdProduct);

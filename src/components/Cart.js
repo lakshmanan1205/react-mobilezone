@@ -8,7 +8,6 @@ import CartTotals from "../components/CartTotals";
 
 function Cart() {
   const cart = useContext(productList);
-  console.log(cart.checkPro);
   //cart.cartproducts.length
   {
     if (cart.cartproducts.length > 0) {

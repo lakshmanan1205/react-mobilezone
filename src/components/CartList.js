@@ -4,7 +4,6 @@ import { productList } from "./productContext";
 
 function CartList(probs) {
   const myCart = useContext(productList);
-  console.log(myCart);
   return (
     <>
       <div className="container-fluid">
