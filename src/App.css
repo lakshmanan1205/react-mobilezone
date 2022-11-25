@@ -39,3 +39,6 @@ body {
   font-size: 1.2rem;
   color: var(--mainYellow);
 }
+#bgColor {
+  background-color: #ced4da;
+}

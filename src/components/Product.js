@@ -47,7 +47,7 @@ function Product(probs) {
   return (
     <>
       <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto">
-        <div className="card">
+        <div className="card  mb-4" id="bgColor">
           <div className="img-container p-5" onClick={clickHandlerDetils}>
             <Link to="/details">
               <img src={img} alt="productImage" className="card-img-top" />

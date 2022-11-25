@@ -1,8 +1,18 @@
 import React, { useContext } from "react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 import { productList } from "./productContext";
 import { Link } from "react-router-dom";
 function CartTotals() {
   const cart = useContext(productList);
+  const amount = cart.cartTotal;
+  // const initialOptions = {
+  //   "client-id":
+  //     "AUFVbOUMgoAD81Mr16w7HvpzQoHUkPpDgz9DdgQedEg51VOfei8uP7-Mv59mslNrAXhEzGhdmXxz7LlV",
+  //   currency: "INR",
+  //   intent: "capture",
+  //   "data-client-token": "abc123xyz==",
+  // };
   return (
     <>
       <div className="container">
@@ -29,6 +39,34 @@ function CartTotals() {
               <span className="text-title">total:</span>
               <strong>$ {cart.cartTotal}</strong>
             </h5>
+            <PayPalScriptProvider
+              options={{
+                "client-id":
+                  "AeozmQBoix90YtkUyFgELSTDVuATuqNS7dDpHTExvg4M_Eyuk8peVts8uM2rkkyr3Hcnfkx6bXvFJQ_5",
+              }}
+            >
+              <PayPalButtons
+                createOrder={(data, actions) => {
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        amount: {
+                          value: cart.cartTotal,
+                        },
+                      },
+                    ],
+                  });
+                }}
+                onApprove={(data, actions) => {
+                  return actions.order.capture().then((details) => {
+                    const name = details.payer.name.given_name;
+                    alert(`Transaction completed by ${name}`);
+                    cart.clearCart();
+                  });
+                }}
+              />
+            </PayPalScriptProvider>
+            {/* <Pay total={cart.cartTotal} /> */}
           </div>
         </div>
       </div>
