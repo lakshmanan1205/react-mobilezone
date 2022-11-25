@@ -39,33 +39,36 @@ function CartTotals() {
               <span className="text-title">total:</span>
               <strong>$ {cart.cartTotal}</strong>
             </h5>
-            <PayPalScriptProvider
-              options={{
-                "client-id":
-                  "AeozmQBoix90YtkUyFgELSTDVuATuqNS7dDpHTExvg4M_Eyuk8peVts8uM2rkkyr3Hcnfkx6bXvFJQ_5",
-              }}
-            >
-              <PayPalButtons
-                createOrder={(data, actions) => {
-                  return actions.order.create({
-                    purchase_units: [
-                      {
-                        amount: {
-                          value: cart.cartTotal,
+            <div className="paypal-container col-10 mx-auto col-md-4 col-lg-4">
+              <PayPalScriptProvider
+                options={{
+                  "client-id":
+                    "AeozmQBoix90YtkUyFgELSTDVuATuqNS7dDpHTExvg4M_Eyuk8peVts8uM2rkkyr3Hcnfkx6bXvFJQ_5",
+                }}
+              >
+                <PayPalButtons
+                  createOrder={(data, actions) => {
+                    return actions.order.create({
+                      purchase_units: [
+                        {
+                          amount: {
+                            value: cart.cartTotal,
+                          },
                         },
-                      },
-                    ],
-                  });
-                }}
-                onApprove={(data, actions) => {
-                  return actions.order.capture().then((details) => {
-                    const name = details.payer.name.given_name;
-                    alert(`Transaction completed by ${name}`);
-                    cart.clearCart();
-                  });
-                }}
-              />
-            </PayPalScriptProvider>
+                      ],
+                    });
+                  }}
+                  onApprove={(data, actions) => {
+                    return actions.order.capture().then((details) => {
+                      const name = details.payer.name.given_name;
+                      alert(`Transaction completed by ${name}`);
+                      cart.clearCart();
+                    });
+                  }}
+                />
+              </PayPalScriptProvider>
+            </div>
+
             {/* <Pay total={cart.cartTotal} /> */}
           </div>
         </div>
